@@ -1,0 +1,99 @@
+# InSAR Soil Moisture Configuration Example
+# ==========================================
+#
+# This configuration file controls the processing parameters
+# for the InSAR-based soil moisture retrieval algorithm.
+#
+# Reference:
+#   De Zan et al. (2026). Validation of high-resolution surface soil
+#   moisture time series retrieved by means of SAR interferometry.
+#   Remote Sensing of Environment.
+
+# Processing parameters
+# ---------------------
+processing:
+  # Multi-look window size (range direction, pixels)
+  # Default: 79 pixels (~240m for Sentinel-1 IW)
+  window_range: 79
+
+  # Multi-look window size (azimuth direction, pixels)
+  # Default: 18 pixels (~240m for Sentinel-1 IW)
+  window_azimuth: 18
+
+# Coherence thresholds
+# --------------------
+thresholds:
+  # Minimum product of 3 coherences for triplet selection
+  # Default: 0.027 (= 0.3^3)
+  # Lower values allow more pixels but may reduce quality
+  triplet_coherence: 0.027
+
+  # Minimum coherence for including pixel in output
+  # Default: 0.1
+  # Higher values produce cleaner but sparser output
+  aggregation_coherence: 0.1
+
+# Output settings
+# ---------------
+output:
+  # Output grid spacing in meters
+  # Default: 1000 (1 km)
+  spacing: 1000
+
+  # Output format: GTiff or NetCDF
+  format: GTiff
+
+  # Compression algorithm: LZW, DEFLATE, ZSTD, or NONE
+  compress: LZW
+
+  # NoData value for output rasters
+  nodata: -9999.0
+
+# Filtering options
+# -----------------
+filtering:
+  temporal:
+    # Enable/disable temporal filtering
+    enabled: true
+
+    # Exponential filter characteristic time (days)
+    # Smaller values = more responsive to changes
+    # Larger values = smoother time series
+    # Default: 3 days
+    characteristic_time: 3
+
+  spatial:
+    # Enable/disable spatial filtering
+    enabled: true
+
+    # Gaussian filter standard deviation (pixels)
+    # Default: 3 pixels
+    sigma: 3
+
+# Parallel processing
+# -------------------
+parallel:
+  # Number of parallel workers
+  # 0 = auto-detect based on CPU cores
+  n_workers: 0
+
+  # Chunk size for memory-efficient processing (pixels)
+  chunk_size: 1000
+
+# Quality control
+# ---------------
+quality:
+  # Minimum valid pixels per window
+  min_valid_pixels: 100
+
+  # Maximum valid closure phase (radians)
+  max_closure_phase: 3.14159
+
+# Logging
+# -------
+logging:
+  # Logging level: DEBUG, INFO, WARNING, ERROR
+  level: INFO
+
+  # Show progress bar during processing
+  progress_bar: true
