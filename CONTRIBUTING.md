@@ -36,7 +36,7 @@ Thank you for considering contributing to this project! This document provides g
 
 ```bash
 # Clone your fork
-git clone https://github.com/yannchemin/insar_soil_moisture.git
+git clone https://github.com/YOUR_USERNAME/insar_soil_moisture.git
 cd insar_soil_moisture
 
 # Create virtual environment
