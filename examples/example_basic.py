@@ -7,17 +7,13 @@ a stack of Sentinel-1 SLC images and retrieve soil moisture.
 """
 
 import os
-import sys
 import numpy as np
 from datetime import datetime, timedelta
 
-# Add parent directory to path for development
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-
-from config import Config
-from processor import InSARSoilMoistureProcessor
-from postprocessing import PostProcessor
-from io_utils import write_geotiff, save_metadata
+from insar_soil_moisture.config import Config
+from insar_soil_moisture.processor import InSARSoilMoistureProcessor
+from insar_soil_moisture.postprocessing import PostProcessor
+from insar_soil_moisture.io_utils import write_geotiff, save_metadata
 
 
 def create_synthetic_data(n_images=20, rows=200, cols=300, seed=42):

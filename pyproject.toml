@@ -81,9 +81,8 @@ Repository = "https://github.com/yourusername/insar_soil_moisture.git"
 Issues = "https://github.com/yourusername/insar_soil_moisture/issues"
 Changelog = "https://github.com/yourusername/insar_soil_moisture/blob/main/CHANGELOG.md"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["src*"]
+[tool.setuptools]
+packages = ["insar_soil_moisture"]
 
 [tool.setuptools.package-dir]
 insar_soil_moisture = "src"

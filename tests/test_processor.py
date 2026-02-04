@@ -9,18 +9,15 @@ import tempfile
 import os
 
 # Import modules to test
-import sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
-
-from config import Config
-from interferometry import (
+from insar_soil_moisture.config import Config
+from insar_soil_moisture.interferometry import (
     compute_interferogram,
     multilook,
     compute_coherence,
     compute_closure_phase,
 )
-from processor import InSARSoilMoistureProcessor
-from postprocessing import PostProcessor
+from insar_soil_moisture.processor import InSARSoilMoistureProcessor
+from insar_soil_moisture.postprocessing import PostProcessor
 
 
 class TestConfig:
